@@ -1,25 +1,18 @@
 {
-   "transactions": [
-      {
-         "id": 1,
-         "transaction": "Transação 1",
-         "value": 10000,
-         "date": "2023-07-01T00:00:00.000Z",
-         "type": "receita"
-      },
-      {
-         "id": 2,
-         "transaction": "Transação 2",
-         "value": 34000,
-         "date": "2023-07-02T00:00:00.000Z",
-         "type": "despesa"
-      },
-      {
-         "id": 3,
-         "transaction": "Transação 3",
-         "value": 20000,
-         "date": "2023-07-03T00:00:00.000Z",
-         "type": "despesa"
-      }
-   ]
+  "transactions": [
+    {
+      "id": "ffbf9953-1466-47c7-a879-decb7ec935ea",
+      "transactionDesc": "tete343",
+      "transactionValue": 33333,
+      "transactionDate": "2025-06-01T03:00:00.000Z",
+      "transactionType": "despesa"
+    },
+    {
+      "id": "8081a48a-c5aa-49b3-9527-0536d47869db",
+      "transactionDesc": "salaraio",
+      "transactionValue": 45555,
+      "transactionDate": "2025-05-06T03:00:00.000Z",
+      "transactionType": "receita"
+    }
+  ]
 }
