@@ -1,0 +1,25 @@
+{
+   "transactions": [
+      {
+         "id": 1,
+         "transaction": "Transação 1",
+         "value": 10000,
+         "date": "2023-07-01T00:00:00.000Z",
+         "type": "receita"
+      },
+      {
+         "id": 2,
+         "transaction": "Transação 2",
+         "value": 34000,
+         "date": "2023-07-02T00:00:00.000Z",
+         "type": "despesa"
+      },
+      {
+         "id": 3,
+         "transaction": "Transação 3",
+         "value": 20000,
+         "date": "2023-07-03T00:00:00.000Z",
+         "type": "despesa"
+      }
+   ]
+}

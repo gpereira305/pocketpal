@@ -1,8 +1,21 @@
 import { CircleArrowUp, CircleArrowDown, DollarSign } from "lucide-react";
-import SummaryCard from "../shared/SummaryCard";  
+import SummaryCard from "../shared/SummaryCard";
 import TransactionModal from "../shared/TransactionModal";
+import { useQuery } from "@tanstack/react-query";
 
 export default function SummaryCards() {
+  const {
+    isPending,
+    isError,
+    data: transactions,
+  } = useQuery({
+    queryKey: ["transactions"],
+    queryFn: () =>
+      fetch("http://localhost:3001/transactions").then((res) => res.json()),
+  });
+
+  console.log(transactions);
+
   const cardsData = [
     {
       title: "Total de entradas",
@@ -34,4 +47,3 @@ export default function SummaryCards() {
     </div>
   );
 }
-
