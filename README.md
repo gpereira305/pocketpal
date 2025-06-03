@@ -42,7 +42,7 @@ Ao submeter o formulário a página faz um reload. Debuguei por horas para elimi
 - Após baixar o pojeto em um diretório de sua escolha digite o comando "npm install".
 - Após o término de todas as dependências serem baixadas pelo npm, digite no mesmo diretório o comando "npm run dev".
 - O seu navegador padrão irá mostrar uma nova aba com o projeto já pronto para ser usado
-- Caso o navegado não inciar, digite o seguinte comando "http://localhost::5173" em uma nova aba.
+- Caso o navegador não inciar, digite o seguinte comando "http://localhost::5173" em uma nova aba.
 <hr>
 
 
