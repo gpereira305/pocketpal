@@ -4,38 +4,22 @@
 ## ** Informações sobre o projeto **
 
 Este projeto oferece uma plataforma dinâmica para explorar perfis e repositórios do GitHub, com as seguintes funcionalidades:
-- Pesquisa de usuários do GitHub por nome.
-- Filtros personalizáveis por tecnologias e características específicas dos repositórios.
-- Avatar e informações básicas: nome, biografia, localização e links de redes sociais.
-
-Filtragem Intuitiva:
-- O botão "Types": Abre um drawer lateral para filtrar repositórios por características (ex: forks, sources, arquived, mirrors).
-
-- O botão "Languages": Permite filtrar projetos pelas linguagens de programação utilizadas (ex: Java, HTML, CSS, Typescript).
-
-Na aba Repositórios:
-- Listagem dos projetos mais relevantes do usuário com a quantidade de stars e forks.
-
-Na aba Starred:
-- É exibido os repositórios favoritados pelo usuário, permitindo explorar projetos que ele curtiu.
-
-Página de detralhes do repositório:
- - Ao clicar no link de um repositório o usuário será redirecionado para a página de detalhes que terá algumas informações relevantes, como o autor, nome do projeto
-linguagem utilizada, data de criação, uma breve descrição, etc.  
-
+- No topo há três cards com informações sobre total de entradas, saídas e o saldo atual.
+- Adicionar uma descrição, um valor, uma data e o tipo da transição.
+- Na tabela é possível filtrar por Receita, Despesa e Todos.
+- Na tabela é possível ordenar clicando em cada item da coluna.
+- Também é possível deletar uma transição.
 
 Tecnologias Utilizadas:
  - Desenvolvido em React com TypeScript para tipagem estática e segurança no código.
  - Tanstack Query para chamadas eficientes e cache de dados.
- - Tanstack Router para controle dinâmico de navegação.
- - Tailwind CSS para design responsivo e interfaces adaptáveis a diferentes dispositivos.
+ - Shadcn para compor os componentes de UI
+ - Zod para validação dos campos do formulário.
+ - Json server para salvar e persistir os dados
 
 Desafios do projeto:
-Optei por utilizar o Tanstack Router e tive um pouco de dificuldade para utilizá-lo nesse projeto por ter as abas que mudam o conteúdo e mas não a página inteira. 
-Tenho pouca experiência com esse router e esse foi o meu maior desafio.
-
-Outro problema que enfrentei foi poder criar uma página de "Notfound" que pudesse ocupar todo o conteúdo, mas com minha pouca experiência de roteamento com o Tanstack Router não ficou da forma que eu gostaria. 
-O tempo para poder resolver essa parte também não foi favorável. Possivelmente eu teria que mudar a estrutura da raiz das rotas.
+Optei por utilizar o Shadcn e tive um pouco de dificuldade para utilizá-lo nesse projeto por  apresentar imcompatibilidades com o Feact 19. 
+Ao submeter o formulário a página faz um reload. Debuguei por horas para eliminar esse problema mas não encontrei umam solução para esse problema.  
  
 
 ## **Links das tecnologias usadas**
@@ -46,6 +30,7 @@ O tempo para poder resolver essa parte também não foi favorável. Possivelment
 - <a href="https://tailwindcss.com/" target="_blank" rel="noopener noreferrer">Tailwind CSS</a>    
 - <a href="https://ui.shadcn.com" target="_blank" rel="noopener noreferrer">Shadcn</a>    
 - <a href="https://zod.dev/" target="_blank" rel="noopener noreferrer">Zod</a>    
+- <a href="https://www.npmjs.com/package/json-server" target="_blank" rel="noopener noreferrer">Json Server</a>    
 <hr>
  
 
