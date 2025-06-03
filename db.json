@@ -1,18 +1,39 @@
 {
   "transactions": [
     {
-      "id": "dcb2ff26-6621-4341-b22d-8e19aa28d286",
-      "transactionDesc": "Salário",
-      "transactionValue": 230000,
-      "transactionDate": "2025-05-01T03:00:00.000Z",
-      "transactionType": "receita"
-    },
-    {
       "id": "a30ddd8b-6c7d-46d4-a8c9-e07b70af2663",
       "transactionDesc": "Gasto com carro",
       "transactionValue": 45000,
       "transactionDate": "2025-05-22T03:00:00.000Z",
       "transactionType": "despesa"
+    },
+    {
+      "id": "6dc31ce4-d1b6-4c3a-8c79-fd2c1b8dabfc",
+      "transactionDesc": "Restaurante",
+      "transactionValue": 67080,
+      "transactionDate": "2025-05-31T03:00:00.000Z",
+      "transactionType": "despesa"
+    },
+    {
+      "id": "4ffe965a-3c36-4bd1-af9f-a7d962a0b839",
+      "transactionDesc": "Aluguel",
+      "transactionValue": 87500,
+      "transactionDate": "2025-06-01T03:00:00.000Z",
+      "transactionType": "despesa"
+    },
+    {
+      "id": "3c6e70ea-7b3b-48bf-a729-f1d1ac373196",
+      "transactionDesc": "Mercado",
+      "transactionValue": 68790,
+      "transactionDate": "2025-06-02T03:00:00.000Z",
+      "transactionType": "despesa"
+    },
+    {
+      "id": "a9aac2cd-3772-4a63-b8b5-f73b0f76407b",
+      "transactionDesc": "Salário",
+      "transactionValue": 580000,
+      "transactionDate": "2025-05-05T03:00:00.000Z",
+      "transactionType": "receita"
     }
   ]
 }
