@@ -1,4 +1,4 @@
-export const convertToBRL = (value: number): string => {
+export function convertToBRL(value: number): string {
   const decimalValue = value / 100;
   const formattedValue = decimalValue.toLocaleString("pt-BR", {
     style: "currency",
@@ -7,4 +7,4 @@ export const convertToBRL = (value: number): string => {
     maximumFractionDigits: 2,
   });
   return formattedValue.replace(".", "#").replace(".", ",").replace("#", ".");
-};
+}

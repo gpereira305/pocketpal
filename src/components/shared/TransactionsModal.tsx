@@ -1,22 +1,19 @@
-import { useState, useRef, memo } from "react";
+import { useState, memo, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { useForm } from "react-hook-form";
 import type { SubmitHandler, FieldError } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Input } from "../ui/input";
 import { Textarea } from "../ui/textarea";
-import { CalendarIcon } from "lucide-react";
-import { format } from "date-fns";
-import { cn } from "../../lib/utils";
 import { Button } from "../ui/button";
-import { Calendar } from "../ui/calendar";
-import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
 import { z } from "zod";
 import type { ZodIssue } from "zod";
 import { Form, FormControl, FormField, FormItem } from "../ui/form";
 import { QueryClient, useMutation } from "@tanstack/react-query";
 import { toast } from "sonner";
 import { axiosInstance } from "../../services/api";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 import {
   Select,
   SelectContent,
@@ -35,6 +32,7 @@ import {
   DialogTrigger,
 } from "../ui/dialog";
 
+// Validação do formulário
 const transactionSchema = z.object({
   transactionDesc: z
     .string()
@@ -51,9 +49,9 @@ const transactionSchema = z.object({
 
 type TransactionSchemaType = z.infer<typeof transactionSchema>;
 
-const TransactionModal = memo(() => {
+const TransactionsModal = memo(() => {
   const [isOpen, setIsOpen] = useState(false);
-  const popoverRef = useRef<HTMLButtonElement>(null);
+  const [startDate, setStartDate] = useState<Date | null>(null);
   const queryClient = new QueryClient();
 
   const form = useForm<TransactionSchemaType>({
@@ -66,7 +64,8 @@ const TransactionModal = memo(() => {
     },
   });
 
-  const addTransaction = useMutation({
+  // Função para adicionar uma nova transação ao banco de dados
+  const { mutateAsync: addTransaction } = useMutation({
     mutationFn: (newTransaction: {
       transactionDate: string;
       transactionValue: number;
@@ -89,7 +88,12 @@ const TransactionModal = memo(() => {
     },
   });
 
-  const onSubmit: SubmitHandler<TransactionSchemaType> = async (values) => {
+  // Função para validar e enviar a transação
+  const onSubmit: SubmitHandler<TransactionSchemaType> = async (
+    values,
+    e?: React.BaseSyntheticEvent
+  ) => {
+    e?.preventDefault();
     const numericValue = Number(
       values.transactionValue.replace(/[^0-9]/g, "").replace(/^0+/, "")
     );
@@ -99,16 +103,22 @@ const TransactionModal = memo(() => {
       transactionDate: values.transactionDate?.toISOString(),
       transactionValue: numericValue,
     };
-    await addTransaction.mutateAsync(transactionValues);
+    await addTransaction(transactionValues);
   };
 
-  const { formState } = form;
+  const { formState, handleSubmit, setValue } = form;
   const { errors } = formState;
+
+  useEffect(() => {
+    if (startDate) {
+      setValue("transactionDate", startDate);
+    }
+  }, [startDate, setValue]);
 
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger asChild>
-        <Button className="h-fit w-fit cursor-pointer rounded-sm px-6 py-3">
+        <Button className="h-fit w-fit cursor-pointer rounded-sm px-6 py-3 dark:bg-sidebar-primary dark:text-white">
           Nova transação
         </Button>
       </DialogTrigger>
@@ -118,13 +128,7 @@ const TransactionModal = memo(() => {
         </DialogHeader>
 
         <Form {...form}>
-          <form
-            onSubmit={(event) => {
-              event.preventDefault();
-              form.handleSubmit(onSubmit)(event);
-            }}
-            className="space-y-6"
-          >
+          <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
             <FormField
               control={form.control}
               name="transactionDesc"
@@ -176,43 +180,11 @@ const TransactionModal = memo(() => {
               render={({ field }) => (
                 <FormItem className="gap-0">
                   <FormControl>
-                    <Popover>
-                      <PopoverTrigger asChild>
-                        <div>
-                          <Button
-                            ref={popoverRef}
-                            variant={"outline"}
-                            className={cn(
-                              "w-full justify-start text-left font-normal cursor-pointer h-[45px]",
-                              !field.value && "text-gray-500"
-                            )}
-                          >
-                            <CalendarIcon className="mr-2 h-4 w-4" />
-                            {field.value
-                              ? format(field.value, "dd/MM/yyyy")
-                              : "Selecione uma data"}
-                            <span className="sr-only">Selecione uma data</span>
-                            <span className="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
-                              <CalendarIcon
-                                className="h-5 w-5 text-gray-400"
-                                aria-hidden="true"
-                              />
-                            </span>
-                          </Button>
-                        </div>
-                      </PopoverTrigger>
-                      <PopoverContent className="w-full p-0">
-                        <Calendar
-                          mode="single"
-                          selected={field.value}
-                          onSelect={(date) => {
-                            field.onChange(date);
-                          }}
-                          initialFocus
-                          toDate={new Date()}
-                        />
-                      </PopoverContent>
-                    </Popover>
+                    <DatePickerComponent
+                      selectedDate={startDate}
+                      setSelectedDate={setStartDate}
+                      {...field}
+                    />
                   </FormControl>
                   {errors.transactionDate && (
                     <ErrorMessage error={errors.transactionDate} />
@@ -235,11 +207,21 @@ const TransactionModal = memo(() => {
                       <SelectTrigger className="w-full cursor-pointer">
                         <SelectValue placeholder="Selecione um tipo de transação" />
                       </SelectTrigger>
-                      <SelectContent>
+                      <SelectContent className="h-[inherit]">
                         <SelectGroup>
                           <SelectLabel>Tipo</SelectLabel>
-                          <SelectItem value="receita">Receita</SelectItem>
-                          <SelectItem value="despesa">Despesa</SelectItem>
+                          <SelectItem
+                            className="cursor-pointer h-[inherit]"
+                            value="receita"
+                          >
+                            Receita
+                          </SelectItem>
+                          <SelectItem
+                            className="cursor-pointer h-[inherit]"
+                            value="despesa"
+                          >
+                            Despesa
+                          </SelectItem>
                         </SelectGroup>
                       </SelectContent>
                     </Select>
@@ -252,7 +234,7 @@ const TransactionModal = memo(() => {
             />
             <DialogFooter>
               <Button
-                className="w-full px-6 py-3 h-fit cursor-pointer"
+                className="w-full px-6 py-3 h-fit cursor-pointer rounded-sm"
                 type="submit"
               >
                 Cadastrar transação
@@ -265,8 +247,8 @@ const TransactionModal = memo(() => {
   );
 });
 
-TransactionModal.displayName = "TransactionModal";
-export default TransactionModal;
+TransactionsModal.displayName = "TransactionsModal";
+export default TransactionsModal;
 
 const ErrorMessage = ({
   error,
@@ -276,4 +258,24 @@ const ErrorMessage = ({
   if (!error) return null;
 
   return <span className="text-red-500 text-sm">{error.message}</span>;
+};
+
+const DatePickerComponent = ({
+  selectedDate,
+  setSelectedDate,
+}: {
+  selectedDate: Date | null;
+  setSelectedDate: (date: Date | null) => void;
+}) => {
+  return (
+    <div className="w-full">
+      <DatePicker
+        selected={selectedDate}
+        onChange={(date) => setSelectedDate(date)}
+        maxDate={new Date()}
+        className="custom-datepicker text-sm"
+        placeholderText="Selecione uma data"
+      />
+    </div>
+  );
 };

@@ -6,13 +6,14 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "./components/ui/sonner";
 
 const App: React.FC = () => {
+  // Configuração do QueryClient para gerenciar o cache e as requisições
   const queryClient = new QueryClient({
     defaultOptions: {
       queries: {
         refetchOnWindowFocus: false,
         refetchOnReconnect: false,
         refetchOnMount: false,
-        staleTime: 1000 * 60 * 5, // 5 minutes
+        staleTime: 1000 * 60 * 5,
         retry: 1,
       },
     },

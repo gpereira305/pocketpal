@@ -1,18 +1,18 @@
 {
   "transactions": [
     {
-      "id": "ffbf9953-1466-47c7-a879-decb7ec935ea",
-      "transactionDesc": "tete343",
-      "transactionValue": 33333,
-      "transactionDate": "2025-06-01T03:00:00.000Z",
-      "transactionType": "despesa"
+      "id": "dcb2ff26-6621-4341-b22d-8e19aa28d286",
+      "transactionDesc": "Salário",
+      "transactionValue": 230000,
+      "transactionDate": "2025-05-01T03:00:00.000Z",
+      "transactionType": "receita"
     },
     {
-      "id": "8081a48a-c5aa-49b3-9527-0536d47869db",
-      "transactionDesc": "salaraio",
-      "transactionValue": 45555,
-      "transactionDate": "2025-05-06T03:00:00.000Z",
-      "transactionType": "receita"
+      "id": "a30ddd8b-6c7d-46d4-a8c9-e07b70af2663",
+      "transactionDesc": "Gasto com carro",
+      "transactionValue": 45000,
+      "transactionDate": "2025-05-22T03:00:00.000Z",
+      "transactionType": "despesa"
     }
   ]
 }

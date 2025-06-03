@@ -12,3 +12,25 @@ export interface Transactions {
   transactionType: string;
   transactionDate: string;
 }
+
+export interface TransactionTableProps {
+  sortedTransactions: Transactions[];
+  deleteTransaction: {
+    mutateAsync: (id: string) => Promise<unknown>;
+  };
+  sortColumn: keyof Transactions;
+  sortOrder: "asc" | "desc";
+  toggleSortOrder: (column: keyof Transactions) => void;
+  tabelheaderStyle: string;
+  handleUppercase: (value: string | number) => React.ReactNode;
+  handleConvertDate: (dateString: string) => string;
+  convertToBRL: (value: number) => string;
+  isExpense: (transactionType: string) => boolean;
+}
+
+export interface DeleteDialogProps {
+  id: string;
+  deleteTransaction: {
+    mutateAsync: (id: string) => Promise<unknown>;
+  };
+}
