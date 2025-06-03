@@ -39,7 +39,7 @@ Ao submeter o formulário a página faz um reload. Debuguei por horas para elimi
 - Na página desse projeto no Github clique em "Code", baixe o Zip ou copie o link do HTTPS.
 - Abra um terminal em uma pasta de sua escolha e cole o link HTTPS.
 - Certifique-se de ter instalado o Node em uma versão superior a 14.0.
-- Após baixar o pojeto em um diretório de sua escolha digite o comando "npm install".
+- Após baixar o pojeto em um diretório de sua escolha digite o comando "npm install", caso ocorra erro então digite "npm install --force".
 - Após o término de todas as dependências serem baixadas pelo npm, digite no mesmo diretório o comando "npm run dev".
 - O seu navegador padrão irá mostrar uma nova aba com o projeto já pronto para ser usado
 - Caso o navegador não inciar, digite o seguinte comando "http://localhost::5173" em uma nova aba.
