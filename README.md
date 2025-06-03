@@ -41,7 +41,7 @@ O tempo para poder resolver essa parte também não foi favorável. Possivelment
 ## **Links das tecnologias usadas**
 
 - <a href="https://pt-br.reactjs.org/" target="_blank" rel="noopener noreferrer">React JS</a> 
-- <a href="https://www.typescriptlang.org/" target="_blank" rel="noopener noreferrer">TypeScript</a> 
+- <a href="https://typescriptlang.org/" target="_blank" rel="noopener noreferrer">TypeScript</a> 
 - <a href="https://tanstack.com/query/latest" target="_blank" rel="noopener noreferrer">Tanstack Query</a>   
 - <a href="https://tailwindcss.com/" target="_blank" rel="noopener noreferrer">Tailwind CSS</a>    
 - <a href="https://ui.shadcn.com" target="_blank" rel="noopener noreferrer">Shadcn</a>    
@@ -70,25 +70,20 @@ O tempo para poder resolver essa parte também não foi favorável. Possivelment
 ## **Screenshots**
 - Desktop
   
- <img width="1910" alt="Image" src="https://github.com/user-attachments/assets/2d02be1d-9c7d-40c0-9022-cbc33aadc8ab" />
+ <img width="1787" alt="Image" src="https://github.com/user-attachments/assets/ee7a48eb-70de-4a7b-8975-81f571c702a4" />
  <hr>
- <img width="1914" alt="Image" src="https://github.com/user-attachments/assets/ba8d478c-991b-435a-80ca-51db16b36661" />
- <hr>
- <img width="1916" alt="Image" src="https://github.com/user-attachments/assets/ebfa0fd8-abce-4712-ad83-bbe6340d2b74" />
- <hr>
- <img width="1917" alt="Image" src="https://github.com/user-attachments/assets/62935b99-4e2d-492e-8049-06b5dc6e65f4" />
- <hr>
- <img width="1911" alt="Image" src="https://github.com/user-attachments/assets/290e4497-20da-48eb-8f81-df4ba884c1d0" />
- <hr>
+ <img width="1577" alt="Image" src="https://github.com/user-attachments/assets/2dc66518-a1c0-40eb-aee2-e3560547c48f" />
+ <hr> 
+ <img width="1546" alt="Image" src="https://github.com/user-attachments/assets/11b397a9-f3fd-4cc8-bc01-6727bee9fa94" />
 
  
 - Versão mobile
 
- <img width="1066" alt="Image" src="https://github.com/user-attachments/assets/9b35a4f5-4d44-401c-ab5c-49931c715383" />
+ <img width="1398" alt="Image" src="https://github.com/user-attachments/assets/72701e2c-334e-4809-991b-7bcf437c36e0" />
  <hr>
- <img width="1333" alt="Image" src="https://github.com/user-attachments/assets/6070fcbb-76e7-4b94-9e9c-57346695b13d" />
+ <img width="1497" alt="Image" src="https://github.com/user-attachments/assets/af1ad58c-8794-4199-b120-6b5ec30a87ab" />
  <hr>
- <img width="1245" alt="Image" src="https://github.com/user-attachments/assets/fb63991b-7f3b-49e0-ae86-c1328bdf2b9c" />
+<img width="1539" alt="Image" src="https://github.com/user-attachments/assets/27a1549f-065b-41a9-afa6-9787fa787cb5" />
 
 
 
